@@ -21,11 +21,22 @@ namespace RollPWR
             customDiceNumericUpDown.Value = 2;
         }
 
-        private void Form1_Resize(object sender, System.EventArgs e)
+        private void Form1_ResizeBegin(Object sender, EventArgs e)
         {
-            Control control = (Control)sender;
-            int a = control.Size.Width;
+
+            MessageBox.Show("You are in the Form.ResizeBegin event.");
         }
+        /*
+         *  Control control = (Control)sender;
+            int a = control.Size.Width;
+            MessageBox.Show(a.ToString());
+         */
+        private void Form1_ResizeEnd(Object sender, EventArgs e)
+        {
+            
+            MessageBox.Show("You are in the Form.ResizeEnd event.");
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
         }
@@ -46,7 +57,7 @@ namespace RollPWR
             int max = 2;
             int randomNum1 = dice.Next(min,max+1);
             rollResultTextBox.Text =  randomNum1.ToString();
-
+            
             updateHistory(nickTextbox.Text, "k" + max.ToString(), randomNum1);
             //historyOfRollsTextBox.AppendText(randomNum1.ToString() + Environment.NewLine);
         }
@@ -167,12 +178,12 @@ namespace RollPWR
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            this.panel1.AutoScroll = true;
+            this.diceHistoryPanel.AutoScroll = true;
         }
         private void updateHistory (string user, string dice, int roll)
         {
             int x=0,y=0;
-            foreach (Label yz in panel1.Controls)
+            foreach (Label yz in diceHistoryPanel.Controls)
             {
                 if (yz.Location.Y > y) { y = yz.Location.Y; }
             }
@@ -188,28 +199,28 @@ namespace RollPWR
             rollHistory.TextAlign = ContentAlignment.TopLeft;
             rollHistory.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            panel1.Controls.Add(rollHistory);
+            diceHistoryPanel.Controls.Add(rollHistory);
 
             Label diceRoll = new Label();
             diceRoll.Text = roll.ToString();
-            diceRoll.Size = new Size(80, 15);
-            diceRoll.Location = new Point(x + 120, y);
+            diceRoll.Size = new Size(60, 15);
+            diceRoll.Location = new Point(x + 130, y);
             diceRoll.TextAlign = ContentAlignment.TopRight;
             diceRoll.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            panel1.Controls.Add(diceRoll);
+            diceHistoryPanel.Controls.Add(diceRoll);
 
             Label diceType = new Label();
             diceType.Text = dice;
-            diceType.Size = new Size(80, 15);
-            diceType.Location = new Point(x + 70, y);
+            diceType.Size = new Size(70, 15);
+            diceType.Location = new Point(x + 65, y);
             diceType.TextAlign = ContentAlignment.TopCenter;
             diceType.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            panel1.Controls.Add(diceType);
+            diceHistoryPanel.Controls.Add(diceType);
 
 
-            panel1.Show();
+            diceHistoryPanel.Show();
 
         }
 
