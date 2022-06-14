@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace RollPWR
 {
+   
     public partial class Form1 : Form
     {
         Random dice = new Random();
@@ -21,29 +22,24 @@ namespace RollPWR
             customDiceNumericUpDown.Value = 2;
         }
 
-        private void Form1_ResizeBegin(Object sender, EventArgs e)
-        {
-
-            MessageBox.Show("You are in the Form.ResizeBegin event.");
-        }
-        /*
-         *  Control control = (Control)sender;
-            int a = control.Size.Width;
-            MessageBox.Show(a.ToString());
-         */
-        private void Form1_ResizeEnd(Object sender, EventArgs e)
-        {
-            
-            MessageBox.Show("You are in the Form.ResizeEnd event.");
-        }
+         //* setSize();
+         //* /
+         
 
         private void Form1_Load(object sender, EventArgs e)
         {
         }
 
+
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1(object sender, EventArgs e)
+        {
+            // Center the Form on the user's screen everytime it requires a Layout.
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -179,6 +175,7 @@ namespace RollPWR
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             this.diceHistoryPanel.AutoScroll = true;
+            
         }
         private void updateHistory (string user, string dice, int roll)
         {
@@ -194,7 +191,7 @@ namespace RollPWR
 
             Label rollHistory = new Label();
             rollHistory.Text = panelCounter.ToString()+": " + user;
-            rollHistory.Size = new Size(80, 15);
+            rollHistory.Size = new Size(90, 15);
             rollHistory.Location = new Point(x, y);
             rollHistory.TextAlign = ContentAlignment.TopLeft;
             rollHistory.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -213,13 +210,13 @@ namespace RollPWR
             Label diceType = new Label();
             diceType.Text = dice;
             diceType.Size = new Size(70, 15);
-            diceType.Location = new Point(x + 65, y);
+            diceType.Location = new Point(x + 75, y);
             diceType.TextAlign = ContentAlignment.TopCenter;
             diceType.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             diceHistoryPanel.Controls.Add(diceType);
 
-
+            diceHistoryPanel.VerticalScroll.Value = diceHistoryPanel.VerticalScroll.Maximum;
             diceHistoryPanel.Show();
 
         }
@@ -233,8 +230,19 @@ namespace RollPWR
         {
             
         }
-    }
 
-        
- 
+        //nope nope nope nope
+        private void setSize()
+        {
+            Size sizeOfWindow = this.ClientSize;
+            float procentToChangeX = sizeOfWindow.Width / 800;
+            float procentToChangeY = sizeOfWindow.Height / 500;
+            foreach (Control x in this.Controls)
+            {
+                int width = (int)(x.Size.Width * procentToChangeX);
+                int height = (int)(x.Size.Height * procentToChangeY);
+                x.Size = new Size(width, height);
+            }
+        }
+    }  
 }
