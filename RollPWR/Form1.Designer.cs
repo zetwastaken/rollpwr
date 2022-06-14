@@ -49,9 +49,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(284, 25);
+            this.label1.Location = new System.Drawing.Point(284, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(275, 42);
             this.label1.TabIndex = 0;
@@ -195,9 +196,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Turquoise;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(565, 4);
+            this.panel1.Location = new System.Drawing.Point(577, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(223, 141);
+            this.panel1.Size = new System.Drawing.Size(220, 140);
             this.panel1.TabIndex = 17;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -229,7 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nickTextbox);
             this.Controls.Add(this.panel1);

@@ -18,8 +18,14 @@ namespace RollPWR
         {
             InitializeComponent();
             nickTextbox.Text = "ja";
+            customDiceNumericUpDown.Value = 2;
         }
 
+        private void Form1_Resize(object sender, System.EventArgs e)
+        {
+            Control control = (Control)sender;
+            int a = control.Size.Width;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
         }
@@ -141,7 +147,7 @@ namespace RollPWR
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             customDiceNumericUpDown.Minimum = 2;
-            customDiceNumericUpDown.Maximum = 2147483645;
+            customDiceNumericUpDown.Maximum = 10000;
             button9.Text = "k" + customDiceNumericUpDown.Value.ToString();
 
             
@@ -177,7 +183,7 @@ namespace RollPWR
 
             Label rollHistory = new Label();
             rollHistory.Text = panelCounter.ToString()+": " + user;
-            rollHistory.Size = new Size(50, 15);
+            rollHistory.Size = new Size(80, 15);
             rollHistory.Location = new Point(x, y);
             rollHistory.TextAlign = ContentAlignment.TopLeft;
             rollHistory.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -195,8 +201,8 @@ namespace RollPWR
 
             Label diceType = new Label();
             diceType.Text = dice;
-            diceType.Size = new Size(100, 15);
-            diceType.Location = new Point(x + 35, y);
+            diceType.Size = new Size(80, 15);
+            diceType.Location = new Point(x + 70, y);
             diceType.TextAlign = ContentAlignment.TopCenter;
             diceType.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
