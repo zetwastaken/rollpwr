@@ -2,6 +2,7 @@
 {
     partial class Form1
     {
+        public event System.EventHandler ResizeEnd;
         /// <summary>
         /// Wymagana zmienna projektanta.
         /// </summary>
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pwrRoll = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -215,7 +217,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 100);
             this.button9.TabIndex = 16;
-            this.button9.Text = "kX";
+            this.button9.Text = "k2";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.kXButton);
             // 
@@ -237,7 +239,7 @@
             this.nickTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nickTextbox.Font = new System.Drawing.Font("Stencil", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nickTextbox.Location = new System.Drawing.Point(135, 106);
-            this.nickTextbox.MaxLength = 9;
+            this.nickTextbox.MaxLength = 8;
             this.nickTextbox.Name = "nickTextbox";
             this.nickTextbox.Size = new System.Drawing.Size(155, 39);
             this.nickTextbox.TabIndex = 18;
@@ -261,7 +263,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.nickLabel);
             this.Controls.Add(this.nickTextbox);
             this.Controls.Add(this.diceHistoryPanel);
@@ -278,6 +280,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pwrRoll);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "PWR Roll 2022";
             this.Load += new System.EventHandler(this.Form1_Load);
