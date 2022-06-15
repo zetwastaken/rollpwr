@@ -194,16 +194,29 @@ namespace RollPWR
             rollHistory.Size = new Size(90, 15);
             rollHistory.Location = new Point(x, y);
             rollHistory.TextAlign = ContentAlignment.TopLeft;
-            rollHistory.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+
+            Single rollHistoryFontSize = 8.25F;
+            Font rollHistoryFont = new Font("Stencil", rollHistoryFontSize, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Size nameLenght = TextRenderer.MeasureText(rollHistory.Text, rollHistoryFont, rollHistory.Size);
+
+            if (nameLenght.Width > 90 )
+            {
+                rollHistoryFontSize = 6.25F;
+            }
+            
+            rollHistory.Font = new Font("Stencil", rollHistoryFontSize, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))); ;
 
             diceHistoryPanel.Controls.Add(rollHistory);
+
+
 
             Label diceRoll = new Label();
             diceRoll.Text = roll.ToString();
             diceRoll.Size = new Size(60, 15);
             diceRoll.Location = new Point(x + 130, y);
             diceRoll.TextAlign = ContentAlignment.TopRight;
-            diceRoll.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            diceRoll.Font = new Font("Stencil", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
             diceHistoryPanel.Controls.Add(diceRoll);
 
@@ -212,7 +225,9 @@ namespace RollPWR
             diceType.Size = new Size(70, 15);
             diceType.Location = new Point(x + 75, y);
             diceType.TextAlign = ContentAlignment.TopCenter;
-            diceType.Font = new Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            diceType.Font = new Font("Stencil", 8.25F, FontStyle.Regular,GraphicsUnit.Point, ((byte)(0)));
+
+
 
             diceHistoryPanel.Controls.Add(diceType);
 
